@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>搜索影片-热门日韩电影-日韩热门影片合集-精选影片在线观看</title>
+  <meta name="description" content="搜索热门日韩电影、精选影片、不同地区与类型片单，快速进入影片详情和在线观看页面。">
+  <meta name="keywords" content="搜索影片,热门日韩电影,日韩电影,热门影片,影片合集,精选影片,在线观看,高清电影">
+  <meta name="renderer" content="webkit">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script defer src="./assets/site.js"></script>
+</head>
+<body>
+  <header class="site-header" data-site-header>
+    <div class="header-inner">
+      <a class="brand" href="./index.html" aria-label="日韩热门电影">
+        <span class="brand-mark">影</span>
+        <span class="brand-copy">
+          <strong>日韩热门电影</strong>
+          <em>精选影片在线观看</em>
+        </span>
+      </a>
+      <nav class="desktop-nav" aria-label="主导航">
+        <a class="nav-link" href="./index.html">首页</a>
+        <a class="nav-link" href="./categories.html">分类</a>
+        <a class="nav-link" href="./rank.html">排行榜</a>
+        <a class="nav-link is-active" href="./search.html">搜索</a>
+      </nav>
+      <form class="header-search" action="./search.html" method="get">
+        <input type="search" name="q" placeholder="搜索电影..." autocomplete="off">
+        <button type="submit">搜索</button>
+      </form>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-label="打开菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mobile-panel" data-mobile-panel>
+      <form class="mobile-search" action="./search.html" method="get">
+        <input type="search" name="q" placeholder="搜索电影..." autocomplete="off">
+        <button type="submit">搜索</button>
+      </form>
+      <nav aria-label="移动导航">
+        <a class="mobile-link" href="./index.html">首页</a>
+        <a class="mobile-link" href="./categories.html">分类</a>
+        <a class="mobile-link" href="./rank.html">排行榜</a>
+        <a class="mobile-link is-active" href="./search.html">搜索</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="page-hero compact-hero search-hero">
+      <div>
+        <span class="eyebrow">搜索</span>
+        <h1>搜索影片</h1>
+        <p>输入片名、地区、类型、年份或标签，快速查找感兴趣的影片。</p>
+        <form class="page-search" action="./search.html" method="get" data-search-page-form>
+          <input type="search" name="q" placeholder="搜索电影..." autocomplete="off" data-search-page-input>
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section catalog-section">
+      <div class="search-toolbar">
+        <span class="eyebrow">搜索结果</span>
+        <select data-search-type>
+          <option value="">全部类型</option>
+          <option value="电影">电影</option>
+          <option value="电视剧">电视剧</option>
+          <option value="剧集">剧集</option>
+        </select>
+      </div>
+      <div class="movie-grid catalog-grid" data-search-results></div>
+      <p class="empty-state" data-search-empty>没有匹配到相关影片</p>
+    </section>
+  </main>
+  <script src="./assets/search-data.js"></script>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="./index.html">日韩热门电影</a>
+      <p>展示热门日韩电影相关内容，涵盖高关注影片、精选片单和不同类型片库。</p>
+      <div class="footer-links">
+        <a href="./categories.html">分类片库</a>
+        <a href="./rank.html">热门排行</a>
+        <a href="./search.html">搜索影片</a>
+      </div>
+    </div>
+  </footer>
+  <button class="back-top" type="button" data-back-top aria-label="返回顶部">↑</button>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?76b5e2e0f6c84c06f0a7cb7105df054d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
