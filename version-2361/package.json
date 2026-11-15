@@ -1,0 +1,16 @@
+{
+  "name": "newnew-ad-widget",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@vercel/global-config": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
