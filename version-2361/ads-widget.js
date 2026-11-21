@@ -1,9 +1,9 @@
 (function () {
   'use strict';
   var key = '__newnewFullPageWidget';
-  if (window[key]) return;
+  var dismissed = '__newnewAdDismissedForDocument';
+  if (window[key] || window[dismissed]) return;
   if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') return;
-  if (/Baiduspider|Googlebot|bingbot|Slurp|DuckDuckBot|YandexBot|Sogou|Exabot|facebot|ia_archiver/i.test(navigator.userAgent)) return;
 
   var host, frame, controller, stopped = false;
   var previousOverflow, previousPriority;
@@ -55,10 +55,20 @@
     }
     host = document.createElement('div');
     host.id = 'newnew-full-page-widget';
-    host.style.cssText = 'all:initial!important;display:block!important;position:fixed!important;inset:0!important;width:100%!important;height:100%!important;z-index:2147483647!important;background:#fff!important;';
+    host.style.cssText = 'all:initial!important;display:grid!important;grid-template-rows:auto minmax(0,1fr)!important;box-sizing:border-box!important;padding-top:env(safe-area-inset-top,0px)!important;position:fixed!important;inset:0!important;z-index:2147483647!important;background:#fff!important;';
     var shadow = host.attachShadow({ mode: 'open' });
+    // A cross-origin frame can fail without delivering a usable error to its parent.
+    var back = document.createElement('button');
+    back.type = 'button';
+    back.textContent = '\u5e7f\u544a \u00b7 \u8fd4\u56de\u672c\u7ad9';
+    back.style.cssText = 'justify-self:end;min-height:44px;padding:0 16px;margin-right:env(safe-area-inset-right,0px);border:0;background:#fff;color:#222;font:500 14px/1.3 system-ui,sans-serif;cursor:pointer;';
+    back.addEventListener('click', function () {
+      window[dismissed] = true;
+      window[key].destroy();
+    });
+    shadow.appendChild(back);
     frame = document.createElement('iframe');
-    frame.title = 'Embedded website';
+    frame.title = 'Advertisement';
     frame.style.cssText = 'display:block;width:100%;height:100%;border:0;background:#fff;';
     frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-top-navigation-by-user-activation');
     frame.setAttribute('allow', 'fullscreen');
